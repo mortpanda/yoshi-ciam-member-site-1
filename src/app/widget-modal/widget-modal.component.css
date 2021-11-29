@@ -1,0 +1,46 @@
+/* @import "https://global.oktacdn.com/okta-signin-widget/5.5.0/css/okta-sign-in.min.css"; */
+
+/* @import '~@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';  */
+
+#okta-sign-in{
+  margin-top: 15px!important;
+}
+
+
+#okta-sign-in.auth-container .o-form-head {
+  color: #00297A!important;
+  border-color: transparent;
+}
+
+#okta-sign-in.auth-container .button-primary {
+  border-radius: 5px!important;
+}
+
+
+.cdk-overlay-container {
+  font-size: 12px!important;
+  z-index: 1000000000!important;
+}
+
+#modal-cancel-button {
+  color: white;
+  border-radius: 0px;
+  background-color: #2D8C9E;
+  width: 180px;
+  border-radius: 5px!important;
+  margin: 15px!important;
+}
+
+#login_title {
+  color: #00297A;
+}
+
+.factorBanner {
+  width: 300px !important;
+  height: auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 0px !important;
+  background-position: center !important;
+  
+}
