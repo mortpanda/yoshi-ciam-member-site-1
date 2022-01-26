@@ -20,6 +20,7 @@ import {
     TokenParams
 } from '@okta/okta-auth-js'
 import { CookieService } from 'ngx-cookie-service';
+import {OktaConfig} from 'app/shared/okta/okta-config';
 
 
 declare const OktaMFA: any;
@@ -42,7 +43,7 @@ export class NavbarComponent implements OnInit {
     private authService = new OktaAuth(this.oktaSDKAuth.config);
 
 
-    constructor(private oktaSDKAuth: OktaSDKAuthService, public location: Location, private element: ElementRef, public _matdialog: MatDialog, private OktaAuthClient: OktaSDKAuthService, private router: Router,private cookieService: CookieService) {
+    constructor(private oktaSDKAuth: OktaSDKAuthService, public location: Location, private element: ElementRef, public _matdialog: MatDialog, private OktaAuthClient: OktaSDKAuthService, private router: Router, private cookieService: CookieService, public OktaConfig:OktaConfig) {
         this.sidebarVisible = false;
     }
 
@@ -208,10 +209,13 @@ export class NavbarComponent implements OnInit {
         localStorage.removeItem('okta_swag_total');
         localStorage.removeItem('okta_new_user_info');
         document.getElementById("welcomeText").innerHTML = " "
-        
+
     }
 
+    async Home() {
+        window.location.replace(this.OktaConfig.strPostLogoutURL);
 
+    }
 
     // async test() {
 
@@ -232,7 +236,7 @@ export class NavbarComponent implements OnInit {
     //     //console.log(token);
     //     // let myToken = token;
 
-        
+
     //     fetch(url, {
     //         method: 'GET', // or 'PUT'
     //         headers: {
@@ -240,7 +244,7 @@ export class NavbarComponent implements OnInit {
     //             'Authorization': 'Bearer ' + token,
     //             'Accept': 'application/json',
     //         },
-            
+
     //     })
     //     .then(response => response.json())
     //     .then(data => console.log(data));
